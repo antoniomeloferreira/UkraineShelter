@@ -21,8 +21,6 @@ public class ShelterService {
 
     public ShelterDto addShelter(ShelterCreationDto aShelterCreationDto) {
 
-        System.out.println("Sout 1: " + aShelterCreationDto.getPetFriendly());
-
         ContactEntity contactEntity = getContactEntityFromShelterCreationDto(aShelterCreationDto);
         ShelterEntity shelterEntity = fromShelterCreationDtoToShelterEntity(aShelterCreationDto);
 
@@ -34,7 +32,6 @@ public class ShelterService {
 
         shelterEntity.setContactId(persistedContact.getId());
 
-        System.out.println("Sout 2: " + shelterEntity.getPetFriendly());
         ShelterEntity persistedShelter = shelterDao.addShelter(shelterEntity);
 
         return fromShelterEntityToShelterDto(persistedShelter);
