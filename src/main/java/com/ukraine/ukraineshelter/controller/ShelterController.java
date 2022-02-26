@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -48,16 +49,19 @@ public class ShelterController {
     }
 
     @GetMapping(path = "list")
-    public ResponseEntity<List<ShelterDto>> getShelterList() {
+    public ResponseEntity<List<ShelterDto>> getShelterListByCountry(@RequestParam String aCountry) {
 
-        List<ShelterDto> shelterList = shelterService.getShelterList();
-        return new ResponseEntity<>(shelterList, HttpStatus.OK);
-    }
+        List<ShelterDto> shelterList = new ArrayList<>();
 
-    @GetMapping(path = "list-by-country")
-    public ResponseEntity<List<ShelterDto>> getShelterListByCountry(@RequestBody String aCountry) {
+        if (aCountry.equals("")) {
 
-        List<ShelterDto> shelterList = shelterService.getShelterListByCountry(aCountry);
+            shelterList = shelterService.getShelterList();
+
+            return new ResponseEntity<>(shelterList, HttpStatus.OK);
+        }
+
+        shelterList = shelterService.getShelterListByCountry(aCountry);
+
         return new ResponseEntity<>(shelterList, HttpStatus.OK);
     }
 }

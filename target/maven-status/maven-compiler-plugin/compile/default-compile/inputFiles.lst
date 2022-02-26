@@ -1,0 +1,12 @@
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\model\Shelter.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\controller\ShelterController.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\model\dto\ShelterCreationDto.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\model\dto\ShelterDto.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\service\ShelterService.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\entity\ShelterEntity.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\dao\AbstractDao.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\dao\ContactDao.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\model\Contact.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\UkraineshelterApplication.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\entity\ContactEntity.java
+D:\Programação\Ukrain\UkraineShelter\src\main\java\com\ukraine\ukraineshelter\dao\ShelterDao.java

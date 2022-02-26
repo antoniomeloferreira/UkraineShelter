@@ -4,7 +4,7 @@ import com.ukraine.ukraineshelter.dao.ContactDao;
 import com.ukraine.ukraineshelter.dao.ShelterDao;
 import com.ukraine.ukraineshelter.entity.ContactEntity;
 import com.ukraine.ukraineshelter.entity.ShelterEntity;
-import com.ukraine.ukraineshelter.model.Shelter;
+
 import com.ukraine.ukraineshelter.model.dto.ShelterCreationDto;
 import com.ukraine.ukraineshelter.model.dto.ShelterDto;
 import org.springframework.beans.factory.annotation.Autowired;

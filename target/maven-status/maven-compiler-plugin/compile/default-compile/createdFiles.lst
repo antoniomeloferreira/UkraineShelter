@@ -1,0 +1,12 @@
+com\ukraine\ukraineshelter\dao\ContactDao.class
+com\ukraine\ukraineshelter\service\ShelterService.class
+com\ukraine\ukraineshelter\dao\ShelterDao.class
+com\ukraine\ukraineshelter\UkraineshelterApplication.class
+com\ukraine\ukraineshelter\dao\AbstractDao.class
+com\ukraine\ukraineshelter\model\dto\ShelterCreationDto.class
+com\ukraine\ukraineshelter\model\dto\ShelterDto.class
+com\ukraine\ukraineshelter\controller\ShelterController.class
+com\ukraine\ukraineshelter\model\Contact.class
+com\ukraine\ukraineshelter\model\Shelter.class
+com\ukraine\ukraineshelter\entity\ContactEntity.class
+com\ukraine\ukraineshelter\entity\ShelterEntity.class
