@@ -22,12 +22,17 @@ public class ShelterController {
     @PostMapping(path = "add")
     public ResponseEntity<ShelterDto> addShelter (@RequestBody ShelterCreationDto aShelterCreationDto) {
 
+        System.out.println("CONTROLLER: " + aShelterCreationDto.getPetFriendly());
         ShelterDto shelter = shelterService.addShelter(aShelterCreationDto);
+        System.out.println("### ShelterCreationDto ###");
+        System.out.println(aShelterCreationDto.toString());
 
         if (shelter == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
+        System.out.println("### ShelterDto ###");
 
+        System.out.println(shelter.toString());
         return new ResponseEntity<>(shelter, HttpStatus.OK);
     }
 /*

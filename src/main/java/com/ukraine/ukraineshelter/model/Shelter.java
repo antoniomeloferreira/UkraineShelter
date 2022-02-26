@@ -8,6 +8,7 @@ public class Shelter {
     private String city;
     private Integer numberOfBeds;
     private Integer securityCode;
+    private Boolean isPetFriendly;
 
     public Integer getId() {
         return id;
@@ -55,5 +56,13 @@ public class Shelter {
 
     public void setSecurityCode(Integer securityCode) {
         this.securityCode = securityCode;
+    }
+
+    public Boolean getPetFriendly() {
+        return isPetFriendly;
+    }
+
+    public void setPetFriendly(Boolean petFriendly) {
+        isPetFriendly = petFriendly;
     }
 }

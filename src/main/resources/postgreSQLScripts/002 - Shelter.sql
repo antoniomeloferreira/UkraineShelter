@@ -5,6 +5,7 @@ CREATE TABLE Shelter (
 	city varchar(50),
 	number_of_beds int,
 	security_code int,
+	is_pet_friendly bit,
 
 	CONSTRAINT fk_contact_id FOREIGN KEY (contact_id) REFERENCES Contact(id)
 );

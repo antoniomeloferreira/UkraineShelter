@@ -32,6 +32,9 @@ public class ShelterEntity {
     @Column(name = "security_code")
     private Integer securityCode;
 
+    @Column(name = "is_pet_friendly")
+    private Boolean isPetFriendly;
+
     public Integer getId() {
         return id;
     }
@@ -78,5 +81,26 @@ public class ShelterEntity {
 
     public void setSecurityCode(Integer securityCode) {
         this.securityCode = securityCode;
+    }
+
+    public Boolean getPetFriendly() {
+        return isPetFriendly;
+    }
+
+    public void setPetFriendly(Boolean petFriendly) {
+        isPetFriendly = petFriendly;
+    }
+
+    @Override
+    public String toString() {
+        return "ShelterEntity{" +
+                "id=" + id +
+                ", contactId=" + contactId +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", numberOfBeds=" + numberOfBeds +
+                ", securityCode=" + securityCode +
+                ", isPetFriendly=" + isPetFriendly +
+                '}';
     }
 }

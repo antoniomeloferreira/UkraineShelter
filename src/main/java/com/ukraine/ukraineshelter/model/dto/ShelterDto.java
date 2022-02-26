@@ -8,6 +8,7 @@ public class ShelterDto {
     private String city;
     private ContactEntity contact;
     private Integer numberOfBeds;
+    private Boolean isPetFriendly;
 
     public String getCountry() {
         return country;
@@ -39,5 +40,24 @@ public class ShelterDto {
 
     public void setNumberOfBeds(Integer numberOfBeds) {
         this.numberOfBeds = numberOfBeds;
+    }
+
+    public Boolean getPetFriendly() {
+        return isPetFriendly;
+    }
+
+    public void setPetFriendly(Boolean petFriendly) {
+        isPetFriendly = petFriendly;
+    }
+
+    @Override
+    public String toString() {
+        return "ShelterDto{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", contact=" + contact +
+                ", numberOfBeds=" + numberOfBeds +
+                ", isPetFriendly=" + isPetFriendly +
+                '}';
     }
 }

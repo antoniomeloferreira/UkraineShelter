@@ -1,3 +1,11 @@
+CREATE DATABASE UkrainShelter;
+
+CREATE TABLE Contact (
+	id SERIAL PRIMARY KEY,
+	number int,
+	contact_type varchar (20)
+);
+
 CREATE TABLE Shelter (
 	id SERIAL PRIMARY KEY,
 	contact_id int,

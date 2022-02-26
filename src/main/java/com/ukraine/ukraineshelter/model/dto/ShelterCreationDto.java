@@ -9,6 +9,7 @@ public class ShelterCreationDto {
     private ContactEntity contact;
     private Integer numberOfBeds;
     private Integer securityCode;
+    private Boolean isPetFriendly;
 
     public String getCountry() {
         return country;
@@ -48,5 +49,25 @@ public class ShelterCreationDto {
 
     public void setSecurityCode(Integer securityCode) {
         this.securityCode = securityCode;
+    }
+
+    public Boolean getPetFriendly() {
+        return isPetFriendly;
+    }
+
+    public void setPetFriendly(Boolean petFriendly) {
+        isPetFriendly = petFriendly;
+    }
+
+    @Override
+    public String toString() {
+        return "ShelterCreationDto{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", contact=" + contact +
+                ", numberOfBeds=" + numberOfBeds +
+                ", securityCode=" + securityCode +
+                ", isPetFriendly=" + isPetFriendly +
+                '}';
     }
 }
