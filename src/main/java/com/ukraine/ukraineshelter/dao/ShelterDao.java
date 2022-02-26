@@ -11,16 +11,16 @@ public class ShelterDao extends AbstractDao {
 
     private static final String PARAMETER_LOCATION = "location";
 
-    public ShelterEntity saveShelter(ShelterEntity aShelter) {
+    public ShelterEntity addShelter(ShelterEntity aShelter) {
         em.persist(aShelter);
         return aShelter;
     }
 
-    public ShelterEntity getByLocation(String aLocation) {
+   /* public ShelterEntity getByLocation(String aLocation) {
         Query q = em.createNamedQuery("ShelterEntity.getByLocation");
         q.setParameter(PARAMETER_LOCATION, aLocation);
 
-        ShelterEntity shelterEntity = q.getSingleResult();
+        //ShelterEntity shelterEntity = q.getSingleResult();
 
         return shelterEntity;
     }
@@ -30,6 +30,6 @@ public class ShelterDao extends AbstractDao {
     public ShelterEntity getByBedNumber() {}
 
     public ShelterEntity deleteShelter() {}
-
+*/
 
 }

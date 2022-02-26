@@ -5,25 +5,32 @@ import javax.persistence.*;
 @Entity
 @Table(name = "shelter")
 @NamedQueries({
-        @NamedQuery(name = "ShelterEntity.getByLocation", query = "SELECT u FROM ShelterEntity u WHERE u.locationId=:location_id"),
-        @NamedQuery(name = "ShelterEntity.getByContact", query = "SELECT u FROM ShelterEntity u WHERE u.contactId=:contact_id"),
-        @NamedQuery(name = "ShelterEntity.getByBedNumber", query = "SELECT u FROM ShelterEntity u WHERE u.bedNumber=:bed_number")
+        @NamedQuery(name = "ShelterEntity.getByCountry", query = "SELECT s FROM ShelterEntity s WHERE s.country=:country"),
+        @NamedQuery(name = "ShelterEntity.getByCity", query = "SELECT s FROM ShelterEntity s WHERE s.city=:city"),
+        @NamedQuery(name = "ShelterEntity.getByContact", query = "SELECT s FROM ShelterEntity s WHERE s.contactId=:contact_id"),
+        @NamedQuery(name = "ShelterEntity.getByNumberOfBeds", query = "SELECT s FROM ShelterEntity s WHERE s.numberOfBeds=:number_of_beds")
 })
 public class ShelterEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "location_id")
-    private Integer locationId;
 
     @Column(name = "contact_id")
     private Integer contactId;
 
-    @Column(name = "bed_number")
-    private Integer bedNumber;
+    @Column(name = "country")
+    private String country;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "number_of_beds")
+    private Integer numberOfBeds;
+
+    @Column(name = "security_code")
+    private Integer securityCode;
 
     public Integer getId() {
         return id;
@@ -31,14 +38,6 @@ public class ShelterEntity {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getLocationId() {
-        return locationId;
-    }
-
-    public void setLocationId(Integer locationId) {
-        this.locationId = locationId;
     }
 
     public Integer getContactId() {
@@ -49,11 +48,35 @@ public class ShelterEntity {
         this.contactId = contactId;
     }
 
-    public Integer getBedNumber() {
-        return bedNumber;
+    public String getCountry() {
+        return country;
     }
 
-    public void setBedNumber(Integer bedNumber) {
-        this.bedNumber = bedNumber;
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Integer getNumberOfBeds() {
+        return numberOfBeds;
+    }
+
+    public void setNumberOfBeds(Integer numberOfBeds) {
+        this.numberOfBeds = numberOfBeds;
+    }
+
+    public Integer getSecurityCode() {
+        return securityCode;
+    }
+
+    public void setSecurityCode(Integer securityCode) {
+        this.securityCode = securityCode;
     }
 }

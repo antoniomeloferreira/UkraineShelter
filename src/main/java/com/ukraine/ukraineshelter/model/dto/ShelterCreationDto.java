@@ -1,29 +1,14 @@
-package com.ukraine.ukraineshelter.model;
+package com.ukraine.ukraineshelter.model.dto;
 
-public class Shelter {
+import com.ukraine.ukraineshelter.entity.ContactEntity;
 
-    private Integer id;
-    private Integer contactId;
+public class ShelterCreationDto {
+
     private String country;
     private String city;
+    private ContactEntity contact;
     private Integer numberOfBeds;
     private Integer securityCode;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getContactId() {
-        return contactId;
-    }
-
-    public void setContactId(Integer contactId) {
-        this.contactId = contactId;
-    }
 
     public String getCountry() {
         return country;
@@ -39,6 +24,14 @@ public class Shelter {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public ContactEntity getContact() {
+        return contact;
+    }
+
+    public void setContact(ContactEntity contact) {
+        this.contact = contact;
     }
 
     public Integer getNumberOfBeds() {
