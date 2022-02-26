@@ -4,11 +4,20 @@ import com.ukraine.ukraineshelter.entity.ContactEntity;
 
 public class ShelterDto {
 
+    private Integer id;
     private String country;
     private String city;
     private ContactEntity contact;
     private Integer numberOfBeds;
     private Boolean petFriendly;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getCountry() {
         return country;

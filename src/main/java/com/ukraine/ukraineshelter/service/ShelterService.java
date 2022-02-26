@@ -40,6 +40,20 @@ public class ShelterService {
         return fromShelterEntityToShelterDto(persistedShelter);
     }
 
+    public ShelterDto updateShelter(ShelterDto aShelterDto) {
+
+        ShelterEntity shelterEntity = shelterDao.getById(aShelterDto.getId());
+
+        shelterEntity.setCountry(aShelterDto.getCountry());
+        shelterEntity.setCity(aShelterDto.getCity());
+        shelterEntity.setNumberOfBeds(aShelterDto.getNumberOfBeds());
+        shelterEntity.setPetFriendly(aShelterDto.getPetFriendly());
+
+        ShelterEntity updatedShelter = shelterDao.update(shelterEntity);
+
+        return fromShelterEntityToShelterDto(updatedShelter);
+    }
+
     public List<ShelterDto> getShelterList() {
 
         List<ShelterEntity> shelterEntityList = shelterDao.getShelterList();
@@ -85,6 +99,7 @@ public class ShelterService {
         ShelterDto shelterDto = new ShelterDto();
         ContactEntity contactEntity = contactDao.getContactById(aShelterEntity.getContactId());
 
+        shelterDto.setId(aShelterEntity.getId());
         shelterDto.setCountry(aShelterEntity.getCountry());
         shelterDto.setCity(aShelterEntity.getCity());
         shelterDto.setNumberOfBeds(aShelterEntity.getNumberOfBeds());

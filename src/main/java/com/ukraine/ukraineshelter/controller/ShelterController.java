@@ -31,6 +31,14 @@ public class ShelterController {
         return new ResponseEntity<>(shelter, HttpStatus.OK);
     }
 
+    @PutMapping(path = "update")
+    public ResponseEntity<ShelterDto> updateShelter(@RequestBody ShelterDto aShelterDto) {
+
+        ShelterDto updatedShelter = shelterService.updateShelter(aShelterDto);
+
+        return new ResponseEntity<>(updatedShelter, HttpStatus.OK);
+    }
+
     @GetMapping(path = "list")
     public ResponseEntity<List<ShelterDto>> getShelterList() {
 

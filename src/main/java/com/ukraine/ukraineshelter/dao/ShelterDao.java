@@ -17,6 +17,19 @@ public class ShelterDao extends AbstractDao {
         return aShelter;
     }
 
+    public ShelterEntity getById(Integer aId) {
+        return em.find(ShelterEntity.class, aId);
+    }
+
+    public ShelterEntity update(ShelterEntity aShelterEntity) {
+
+        if (aShelterEntity == null) {
+            return null;
+        }
+
+        return em.merge(aShelterEntity);
+    }
+
     public List<ShelterEntity> getShelterList() {
 
         Query q = em.createNamedQuery("ShelterEntity.getAllShelters");
