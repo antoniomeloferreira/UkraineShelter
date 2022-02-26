@@ -40,14 +40,18 @@ public class ShelterService {
         return fromShelterEntityToShelterDto(persistedShelter);
     }
 
-    public ShelterDto updateShelter(ShelterDto aShelterDto) {
+    public ShelterDto updateShelter(ShelterEntity aShelterEntity) {
 
-        ShelterEntity shelterEntity = shelterDao.getById(aShelterDto.getId());
+        if(!isSecurityCodeCorrect(aShelterEntity)) {
+            return null;
+        }
 
-        shelterEntity.setCountry(aShelterDto.getCountry());
-        shelterEntity.setCity(aShelterDto.getCity());
-        shelterEntity.setNumberOfBeds(aShelterDto.getNumberOfBeds());
-        shelterEntity.setPetFriendly(aShelterDto.getPetFriendly());
+        ShelterEntity shelterEntity = shelterDao.getById(aShelterEntity.getId());
+
+        shelterEntity.setCountry(aShelterEntity.getCountry());
+        shelterEntity.setCity(aShelterEntity.getCity());
+        shelterEntity.setNumberOfBeds(aShelterEntity.getNumberOfBeds());
+        shelterEntity.setPetFriendly(aShelterEntity.getPetFriendly());
 
         ShelterEntity updatedShelter = shelterDao.update(shelterEntity);
 
@@ -56,13 +60,18 @@ public class ShelterService {
 
     public Boolean deleteShelter (ShelterEntity aShelterEntity) {
 
-        ShelterEntity persistedEntity = shelterDao.getById(aShelterEntity.getId());
-
-        if (!aShelterEntity.getSecurityCode().equals(persistedEntity.getSecurityCode())) {
+        if (!isSecurityCodeCorrect(aShelterEntity)) {
             return false;
         }
 
         return shelterDao.delete(aShelterEntity);
+    }
+
+    public boolean isSecurityCodeCorrect(ShelterEntity aShelterEntity) {
+
+        ShelterEntity persistedEntity = shelterDao.getById(aShelterEntity.getId());
+
+        return aShelterEntity.getSecurityCode().equals(persistedEntity.getSecurityCode());
     }
 
     public List<ShelterDto> getShelterList() {
@@ -101,6 +110,18 @@ public class ShelterService {
         shelterEntity.setNumberOfBeds(aShelterCreationDto.getNumberOfBeds());
         shelterEntity.setSecurityCode(aShelterCreationDto.getSecurityCode());
         shelterEntity.setPetFriendly(aShelterCreationDto.getPetFriendly());
+
+        return shelterEntity;
+    }
+
+    private ShelterEntity fromShelterDtoToShelterEntity (ShelterDto aShelterDto) {
+
+        ShelterEntity shelterEntity = new ShelterEntity();
+
+        shelterEntity.setCountry(aShelterDto.getCountry());
+        shelterEntity.setCity(aShelterDto.getCity());
+        shelterEntity.setNumberOfBeds(aShelterDto.getNumberOfBeds());
+        shelterEntity.setPetFriendly(aShelterDto.getPetFriendly());
 
         return shelterEntity;
     }

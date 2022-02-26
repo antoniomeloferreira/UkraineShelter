@@ -33,11 +33,11 @@ public class ShelterController {
     }
 
     @PutMapping(path = "update")
-    public ResponseEntity<ShelterDto> updateShelter(@RequestBody ShelterDto aShelterDto) {
+    public ResponseEntity<ShelterDto> updateShelter(@RequestBody ShelterEntity aShelterEntity) {
 
-        ShelterDto updatedShelter = shelterService.updateShelter(aShelterDto);
+        ShelterDto updatedShelter = shelterService.updateShelter(aShelterEntity);
 
-        return new ResponseEntity<>(updatedShelter, HttpStatus.OK);
+        return updatedShelter != null ? new ResponseEntity<>(updatedShelter, HttpStatus.OK) : new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping(path = "delete")
