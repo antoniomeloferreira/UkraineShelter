@@ -10,6 +10,9 @@ import com.ukraine.ukraineshelter.model.dto.ShelterDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ShelterService {
 
@@ -35,6 +38,25 @@ public class ShelterService {
         ShelterEntity persistedShelter = shelterDao.addShelter(shelterEntity);
 
         return fromShelterEntityToShelterDto(persistedShelter);
+    }
+
+    public List<ShelterDto> getShelterList() {
+
+        List<ShelterEntity> shelterEntityList = shelterDao.getShelterList();
+        List<ShelterDto> shelterDtoList = fromShelterEntityListToShelterDtoList(shelterEntityList);
+
+        return shelterDtoList;
+    }
+
+    private List<ShelterDto> fromShelterEntityListToShelterDtoList(List<ShelterEntity> aShelterEntityList) {
+
+        ArrayList<ShelterDto> shelterDtoList = new ArrayList<>();
+
+        for (ShelterEntity s : aShelterEntityList) {
+            shelterDtoList.add(fromShelterEntityToShelterDto(s));
+        }
+
+        return shelterDtoList;
     }
 
     private ShelterEntity fromShelterCreationDtoToShelterEntity (ShelterCreationDto aShelterCreationDto) {

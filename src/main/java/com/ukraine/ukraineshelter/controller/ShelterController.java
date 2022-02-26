@@ -30,12 +30,11 @@ public class ShelterController {
 
         return new ResponseEntity<>(shelter, HttpStatus.OK);
     }
-/*
+
     @GetMapping(path = "list")
     public ResponseEntity<List<ShelterDto>> getShelterList() {
 
-        List<ShelterDto> shelterList =
+        List<ShelterDto> shelterList = shelterService.getShelterList();
+        return new ResponseEntity<>(shelterList, HttpStatus.OK);
     }
-
- */
 }

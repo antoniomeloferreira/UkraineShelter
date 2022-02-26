@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "shelter")
 @NamedQueries({
+        @NamedQuery(name = "ShelterEntity.getAllShelters", query = "SELECT s FROM ShelterEntity s"),
         @NamedQuery(name = "ShelterEntity.getByCountry", query = "SELECT s FROM ShelterEntity s WHERE s.country=:country"),
         @NamedQuery(name = "ShelterEntity.getByCity", query = "SELECT s FROM ShelterEntity s WHERE s.city=:city"),
         @NamedQuery(name = "ShelterEntity.getByContact", query = "SELECT s FROM ShelterEntity s WHERE s.contactId=:contact_id"),
