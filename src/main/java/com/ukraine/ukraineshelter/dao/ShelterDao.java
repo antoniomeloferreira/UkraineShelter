@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class ShelterDao extends AbstractDao {
 
-    private static final String PARAMETER_LOCATION = "location";
+    private static final String PARAMETER_LOCATION = "country";
 
     public ShelterEntity addShelter(ShelterEntity aShelter) {
         em.persist(aShelter);
@@ -23,20 +23,13 @@ public class ShelterDao extends AbstractDao {
         return q.getResultList();
     }
 
-   /* public ShelterEntity getByLocation(String aLocation) {
-        Query q = em.createNamedQuery("ShelterEntity.getByLocation");
-        q.setParameter(PARAMETER_LOCATION, aLocation);
+    public List<ShelterEntity> getShelterListByCountry(String aCountry) {
 
-        //ShelterEntity shelterEntity = q.getSingleResult();
+        Query q = em.createNamedQuery("ShelterEntity.getByCountry");
+        q.setParameter(PARAMETER_LOCATION, aCountry);
+
+        List<ShelterEntity> shelterEntity = q.getResultList();
 
         return shelterEntity;
     }
-
-    public ShelterEntity getByContact() {}
-
-    public ShelterEntity getByBedNumber() {}
-
-    public ShelterEntity deleteShelter() {}
-*/
-
 }

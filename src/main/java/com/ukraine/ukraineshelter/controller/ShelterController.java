@@ -37,4 +37,11 @@ public class ShelterController {
         List<ShelterDto> shelterList = shelterService.getShelterList();
         return new ResponseEntity<>(shelterList, HttpStatus.OK);
     }
+
+    @GetMapping(path = "list-by-country")
+    public ResponseEntity<List<ShelterDto>> getShelterListByCountry(@RequestBody String aCountry) {
+
+        List<ShelterDto> shelterList = shelterService.getShelterListByCountry(aCountry);
+        return new ResponseEntity<>(shelterList, HttpStatus.OK);
+    }
 }

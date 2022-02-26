@@ -48,6 +48,14 @@ public class ShelterService {
         return shelterDtoList;
     }
 
+    public List<ShelterDto> getShelterListByCountry(String aCountry) {
+
+        List<ShelterEntity> shelterEntityList = shelterDao.getShelterListByCountry(aCountry);
+        List<ShelterDto> shelterDtoList = fromShelterEntityListToShelterDtoList(shelterEntityList);
+
+        return shelterDtoList;
+    }
+
     private List<ShelterDto> fromShelterEntityListToShelterDtoList(List<ShelterEntity> aShelterEntityList) {
 
         ArrayList<ShelterDto> shelterDtoList = new ArrayList<>();
