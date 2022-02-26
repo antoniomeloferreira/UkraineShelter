@@ -30,6 +30,16 @@ public class ShelterDao extends AbstractDao {
         return em.merge(aShelterEntity);
     }
 
+    public Boolean delete(ShelterEntity aShelterEntity) {
+
+        ShelterEntity persistedShelterEntity = getById(aShelterEntity.getId());
+        em.remove(persistedShelterEntity);
+
+        ShelterEntity shelterEntity = getById(aShelterEntity.getId());
+
+        return shelterEntity == null;
+    }
+
     public List<ShelterEntity> getShelterList() {
 
         Query q = em.createNamedQuery("ShelterEntity.getAllShelters");

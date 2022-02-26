@@ -54,6 +54,17 @@ public class ShelterService {
         return fromShelterEntityToShelterDto(updatedShelter);
     }
 
+    public Boolean deleteShelter (ShelterEntity aShelterEntity) {
+
+        ShelterEntity persistedEntity = shelterDao.getById(aShelterEntity.getId());
+
+        if (!aShelterEntity.getSecurityCode().equals(persistedEntity.getSecurityCode())) {
+            return false;
+        }
+
+        return shelterDao.delete(aShelterEntity);
+    }
+
     public List<ShelterDto> getShelterList() {
 
         List<ShelterEntity> shelterEntityList = shelterDao.getShelterList();

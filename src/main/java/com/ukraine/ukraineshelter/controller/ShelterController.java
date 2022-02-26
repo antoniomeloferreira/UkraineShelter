@@ -1,5 +1,6 @@
 package com.ukraine.ukraineshelter.controller;
 
+import com.ukraine.ukraineshelter.entity.ShelterEntity;
 import com.ukraine.ukraineshelter.model.dto.ShelterCreationDto;
 import com.ukraine.ukraineshelter.model.dto.ShelterDto;
 import com.ukraine.ukraineshelter.service.ShelterService;
@@ -37,6 +38,13 @@ public class ShelterController {
         ShelterDto updatedShelter = shelterService.updateShelter(aShelterDto);
 
         return new ResponseEntity<>(updatedShelter, HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "delete")
+    public ResponseEntity<Boolean> deleteShelter(@RequestBody ShelterEntity aShelterEntity) {
+
+        Boolean isDeleted = shelterService.deleteShelter(aShelterEntity);
+        return isDeleted ? new ResponseEntity<>(true, HttpStatus.OK) : new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping(path = "list")
